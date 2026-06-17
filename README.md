@@ -131,7 +131,7 @@ MITRE ATT&CK
 Custom Detection Rules
 
 The following custom rule was created to detect PowerShell Script Block Logging events:
-
+'''xml
 <group name="windows,powershell,">
   <rule id="100100" level="6">
     <if_sid>60000</if_sid>
@@ -145,6 +145,7 @@ The following custom rule was created to detect PowerShell Script Block Logging 
     <group>powershell,T1059,</group>
   </rule>
 </group>
+'''
 
 Troubleshooting Performed:
     During the project, several issues were identified and resolved:
