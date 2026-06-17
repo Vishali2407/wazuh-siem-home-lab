@@ -1,6 +1,6 @@
-## Wazuh SIEM Home Lab
+# Wazuh SIEM Home Lab
 
-# Project Overview
+## Project Overview
 
 This project demonstrates the deployment and configuration of a Security Information and Event Management (SIEM) solution using Wazuh, OpenSearh and Windows endpoints.
 
@@ -8,18 +8,19 @@ The objective of the lab was to build a SOC-style environment capable of monitor
 
 The lab includes:
 
--Windows 11 
--Wazuh Manager deployment on ubuntu
--File Integrity Monitoring(FIM)
--Registry monitoring
--User account monitoring
--Privilege escalation monitoring
--Powershell Script Block Logging
--MITRE ATT&CK MAPPING
--Custom detection rule development
--threat hunting and incident investigation
+- Windows 11 
+- Wazuh Manager deployment on Ubuntu
+- File Integrity Monitoring(FIM)
+- Registry monitoring
+- User account monitoring
+- Privilege escalation monitoring
+- Powershell Script Block Logging
+- MITRE ATT&CK MAPPING
+- Custom detection rule development
+- Threat Hunting and Incident Investigation
 
-Lab Architecture
+## Lab Architecture
+```text
 Windows 11 Endpoint
       |
       V
@@ -33,102 +34,105 @@ OpenSearch Indexer
       |
       V
 Wazuh Dashboard
+```
 
-Architecture Screenshot
+### Architecture Screenshot
 
-## technology Stack
--Wazuh Manager
--Wazuh Agent
--OpenSearch Indexer
--OpenSearch Dashboard
--Ubuntu Server 24.04
--Windows 11
--PowerShell
--VMWare workstation
-
-
-Detection scenarios:-
-1. User Account Creation Detection
-Objective-
-    Detect unauthorized creation of local user accounts.
-
-Attack Simulation:
-    net user attacker Password@123 /add
-
-Event Generated-
-    Event ID:4720
-
-MITRE ATT&ck-
-    T1136-Create Account
-
-Evidence:
--User creation command
+## Technology Stack
+- Wazuh Manager
+- Wazuh Agent
+- OpenSearch Indexer
+- OpenSearch Dashboard
+- Ubuntu Server 24.04
+- Windows 11
+- PowerShell
+- VMWare workstation
 
 
--Wazuh Alert
+## Detection scenarios:-
+### 1. User Account Creation Detection
+### Objective
+Detect unauthorized creation of local user accounts.
+
+### Attack Simulation
+```cmd
+net user attacker Password@123 /add
+```
+### Event Generated
+Event ID:4720
+
+### MITRE ATT&CK
+T1136-Create Account
+
+### Evidence
+#### User creation command
 
 
--Event details
+#### Wazuh Alert
 
 
-2. Administrator Group Membership Detection
-Objective-
-    Detect privilege escaltion through administrator group assignment
-
-Attack Simulation:
-    net localgroup Administrators attack /add
-
-Event Generated 
-    Event ID: 4732
-
-MITRE ATT&CK 
-    T1098 - Account manipulation
-
-Evidence:
--
+#### Event details
 
 
-3. File Integrity Monitoring(FIM)
-Objective-
-    Detect unauthorized file modifications
+### 2. Administrator Group Membership Detection
+### Objective
+Detect privilege escaltion through administrator group assignment
 
-Detection Logic
-    Wazuh Syscheck monitors protected directories and generates alerts when files are:
-        -created
-        -modified
-        -deleted
+### Attack Simulation
+```cmd
+net localgroup Administrators attack /add
+```
+### Event Generated 
+Event ID: 4732
 
-Evidence:
+### MITRE ATT&CK 
+T1098 - Account manipulation
+
+### Evidence
 
 
 
-4. Registry Monitoring
-Objective:
-    Detect registry modifications that may indicate persistence or configuration tampering.
+### 3. File Integrity Monitoring(FIM)
+### Objective
+Detect unauthorized file modifications
 
-Detection Logic-
-    Wazuh continuously monitors critical windows registry locations
+### Detection Logic
+Wazuh Syscheck monitors protected directories and generates alerts when files are:
+- created
+- modified
+- deleted
 
 Evidence:
 
 
 
-5. PowerShell Threat Detection
-Objective:
-    Monitor PowerShell activity using Script Block Logging.
+### 4. Registry Monitoring
+### Objective
+Detect registry modifications that may indicate persistence or configuration tampering.
 
-Detection Logic-
-    Windows PowerShell Script Block Logging was enabled to generate Event ID 4104 events.
+### Detection Logic
+Wazuh continuously monitors critical windows registry locations
 
-    A custom wazuh rule was developed to detect and alert on powershell execution events
+### Evidence
 
-Event Generated
-    Event ID: 4104
 
-MITRE ATT&CK
-    T1059.001 - PowerShell
 
-Custom Detection Rules
+### 5. PowerShell Threat Detection
+### Objective
+Monitor PowerShell activity using Script Block Logging.
+
+### Detection Logic
+Windows PowerShell Script Block Logging was enabled to generate Event ID 4104 events.
+
+A custom wazuh rule was developed to detect and alert on powershell execution events
+
+### Event Generated
+Event ID: 4104
+
+### MITRE ATT&CK
+T1059.001 - PowerShell
+
+### Custom Detection Rules
 
 The following custom rule was created to detect PowerShell Script Block Logging events:
 ```xml
@@ -147,49 +151,47 @@ The following custom rule was created to detect PowerShell Script Block Logging 
 </group>
 ```
 
-Troubleshooting Performed:
-    During the project, several issues were identified and resolved:
+## Troubleshooting Performed
+During the project, several issues were identified and resolved:
 
 PowerShell Logging Issue-
 
 Problem:
-    No fresh Event ID 4104 events generated.
+No fresh Event ID 4104 events generated.
 
 Resolution:
-    Enabled Script Block Logging through registry configuration.
-Agent Connectivity Issue
+Enabled Script Block Logging through registry configuration.
 
+### Agent Connectivity Issue
 Problem:
-    Windows agent disconnected after manager restart.
+Windows agent disconnected after manager restart.
 
 Resolution:
-
 Opened required UFW ports:
 1514/TCP
 1515/TCP
 443/TCP
 
-PowerShell Detection Issue-
-
+### PowerShell Detection Issue
 Problem:
-    Event ID 4104 not generating alerts.
+Event ID 4104 not generating alerts.
 
 Resolution:
-    Created custom Wazuh rule and restarted manager.
+Created custom Wazuh rule and restarted manager.
 
 
-Skills Demonstrated:
--SIEM Deployment
--Wazuh administration
--Threat Detection Engineering
--Windows Event Analysis
--PowerShell Monitoring
--MITRE ATT&CK Mapping
--Threat Hunting
--Incident Investigation
--Firewall Troubleshooting
--Log Analysis
--Security Monitoring
+## Skills Demonstrated
+- SIEM Deployment
+- Wazuh administration
+- Threat Detection Engineering
+- Windows Event Analysis
+- PowerShell Monitoring
+- MITRE ATT&CK Mapping
+- Threat Hunting
+- Incident Investigation
+- Firewall Troubleshooting
+- Log Analysis
+- Security Monitoring
 
-Conclusion:
-    This project succesfully implemented a functional SOC-style monitoring environment capable of collecting, analysing, and alerting on security-relevant activity from a windows endpoint using Wazuh SIEM.
+## Conclusion:
+This project succesfully implemented a functional SOC-style monitoring environment capable of collecting, analysing, and alerting on security-relevant activity from a windows endpoint using Wazuh SIEM.
