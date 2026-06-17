@@ -1,0 +1,20 @@
+<group name="windows,powershell,">
+
+  <rule id="100100" level="6">
+    <if_sid>60000</if_sid>
+
+    <field name="win.system.eventID">^4104$</field>
+
+    <description>
+      PowerShell Script Block Logging - Command Executed
+    </description>
+
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+
+    <group>powershell,T1059,</group>
+
+  </rule>
+
+</group>

@@ -23,16 +23,16 @@ The lab includes:
 ```text
 Windows 11 Endpoint
       |
-      V
+      ▼
 Wazuh Agent
       |
-      V
+      ▼
 Ubuntu Wazuh Manager
       |
-      V
+      ▼
 OpenSearch Indexer
       |
-      V
+      ▼
 Wazuh Dashboard
 ```
 
