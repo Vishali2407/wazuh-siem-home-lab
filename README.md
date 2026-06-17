@@ -120,7 +120,7 @@ Objective:
 Detection Logic-
     Windows PowerShell Script Block Logging was enabled to generate Event ID 4104 events.
 
-    A custom Wazuh rule was developed to detect and alert on PowerShell execution events.
+    A custom wazuh rule was developed to detect and alert on powershell execution events
 
 Event Generated
     Event ID: 4104
