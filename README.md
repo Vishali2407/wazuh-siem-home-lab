@@ -4,7 +4,7 @@
 
 This project demonstrates the deployment and configuration of a Security Information and Event Management (SIEM) solution using Wazuh, OpenSearch and Windows endpoints.
 
-The objective of the lab was to build a SOC-style environment capable of monitoring, detecting, and investigating security events generated from a Windows endpoints
+The objective of the lab was to build a SOC-style environment capable of monitoring, detecting, and investigating security events generated from Windows endpoints
 
 The lab includes:
 
@@ -34,7 +34,11 @@ OpenSearch Indexer
 Wazuh Dashboard
 ```
 
-### Architecture Screenshot
+### Architecture Screenshot 
+![Lab Architecture](screenshots/architecture/lab-architecture.png)
+
+### Active Agents
+![Active Agents](screenshots/architecture/active-agents.png)
 
 ## Technology Stack
 - Wazuh Manager
@@ -44,7 +48,7 @@ Wazuh Dashboard
 - Ubuntu Server 24.04
 - Windows 11
 - PowerShell
-- VMWare workstation
+- VMWare Workstation
 
 
 ## Detection scenarios:-
@@ -64,13 +68,13 @@ T1136-Create Account
 
 ### Evidence
 #### User creation command
+![User Creation command](screenshots/user-creation/user-creation-command.png)
 
+#### Event Viewer Event 4720
+![Event Viewer](screenshots/user-creation/user-creation-evnvwr.png)
 
 #### Wazuh Alert
-
-
-#### Event details
-
+![Wazuh Alert](screenshots/user-creation/user-created-wazuh.png)
 
 ### 2. Administrator Group Membership Detection
 ### Objective
@@ -78,7 +82,7 @@ Detect privilege escalation through administrator group assignment
 
 ### Attack Simulation
 ```cmd
-net localgroup Administrators attack /add
+net localgroup Administrators attacker /add
 ```
 ### Event Generated 
 Event ID: 4732
@@ -87,7 +91,14 @@ Event ID: 4732
 T1098 - Account manipulation
 
 ### Evidence
+#### Administrator Group Command
+![Admin Command](screenshots/admin-group/admin-command.png)
 
+#### Event Viewer Event 4732
+![Event Viewer](screenshots/admin-group/event-4732-evnvwr.png)
+
+#### Wazuh Alert
+![Wazuh Alert](screenshots/admin-group/event-4732-wazuh-alert.png)
 
 
 ### 3. File Integrity Monitoring(FIM)
@@ -100,10 +111,8 @@ Wazuh Syscheck monitors protected directories and generates alerts when files ar
 - modified
 - deleted
 
-Evidence:
-
-
-
+### Evidence
+![FIM Alert](screenshots/fim/fim-alert.png)
 
 ### 4. PowerShell Threat Detection
 ### Objective
@@ -182,4 +191,4 @@ Created custom Wazuh rule and restarted manager.
 - Security Monitoring
 
 ## Conclusion:
-This project successfully implemented a functional SOC-style monitoring environment capable of collecting, analysing, and alerting on security-relevant activity from a windows endpoint using Wazuh SIEM.
+This project successfully implemented a functional SOC-style monitoring environment capable of collecting, analysing, and alerting on security-relevant activity from a Windows endpoint using Wazuh SIEM.
