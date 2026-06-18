@@ -83,25 +83,3 @@ Identify unauthorized file modifications.
 File creation and modification activities generated alerts as expected.
 
 ---
-
-## Hunt 4: Registry Modification Events
-
-### Goal
-
-Identify suspicious registry changes.
-
-### Indicators
-
-* Registry key modifications
-* Registry value changes
-
-### Investigation Steps
-
-1. Review registry alerts.
-2. Identify modified keys.
-3. Verify whether changes were expected.
-4. Assess persistence risks.
-
-### Findings
-
-Registry modifications were successfully detected and logged.

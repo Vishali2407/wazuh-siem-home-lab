@@ -2,19 +2,17 @@
 
 ## Project Overview
 
-This project demonstrates the deployment and configuration of a Security Information and Event Management (SIEM) solution using Wazuh, OpenSearh and Windows endpoints.
+This project demonstrates the deployment and configuration of a Security Information and Event Management (SIEM) solution using Wazuh, OpenSearch and Windows endpoints.
 
-The objective of the lab was to build a SOC-style environment capable of monitoring, detecting, and investigating security events generated from a windows endpoints
+The objective of the lab was to build a SOC-style environment capable of monitoring, detecting, and investigating security events generated from a Windows endpoints
 
 The lab includes:
 
 - Windows 11 
 - Wazuh Manager deployment on Ubuntu
 - File Integrity Monitoring(FIM)
-- Registry monitoring
 - User account monitoring
 - Privilege escalation monitoring
-- Powershell Script Block Logging
 - MITRE ATT&CK MAPPING
 - Custom detection rule development
 - Threat Hunting and Incident Investigation
@@ -76,7 +74,7 @@ T1136-Create Account
 
 ### 2. Administrator Group Membership Detection
 ### Objective
-Detect privilege escaltion through administrator group assignment
+Detect privilege escalation through administrator group assignment
 
 ### Attack Simulation
 ```cmd
@@ -106,16 +104,8 @@ Evidence:
 
 
 
-### 4. Registry Monitoring
-### Objective
-Wazuh was configured to monitor critical windows registry locations for unauthorised cahnges.
-During testing, modifications to monitored registry keys generated integrity monitoring alerts, demonstrating wazuh's ability to detect potential persistence mechnanisms and system configuration changes.
 
-### Detection Logic
-Wazuh continuously monitors critical windows registry locations
-
-
-### 5. PowerShell Threat Detection
+### 4. PowerShell Threat Detection
 ### Objective
 Monitor PowerShell activity using Script Block Logging.
 
@@ -192,4 +182,4 @@ Created custom Wazuh rule and restarted manager.
 - Security Monitoring
 
 ## Conclusion:
-This project succesfully implemented a functional SOC-style monitoring environment capable of collecting, analysing, and alerting on security-relevant activity from a windows endpoint using Wazuh SIEM.
+This project successfully implemented a functional SOC-style monitoring environment capable of collecting, analysing, and alerting on security-relevant activity from a windows endpoint using Wazuh SIEM.

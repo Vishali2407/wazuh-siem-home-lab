@@ -77,13 +77,3 @@ Wazuh Syscheck monitors protected files and directories and generates alerts whe
 * Wazuh FIM alert
 
 ---
-
-## 4. Registry Monitoring
-
-### Objective
-
-Detect registry modifications that may indicate persistence or configuration tampering.
-
-### Detection Logic
-
-Wazuh continuously monitors configured Windows registry locations and generates alerts when changes occur.
