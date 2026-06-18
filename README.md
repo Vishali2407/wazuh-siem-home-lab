@@ -108,13 +108,11 @@ Evidence:
 
 ### 4. Registry Monitoring
 ### Objective
-Detect registry modifications that may indicate persistence or configuration tampering.
+Wazuh was configured to monitor critical windows registry locations for unauthorised cahnges.
+During testing, modifications to monitored registry keys generated integrity monitoring alerts, demonstrating wazuh's ability to detect potential persistence mechnanisms and system configuration changes.
 
 ### Detection Logic
 Wazuh continuously monitors critical windows registry locations
-
-### Evidence
-
 
 
 ### 5. PowerShell Threat Detection

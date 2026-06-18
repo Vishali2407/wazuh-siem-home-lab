@@ -87,8 +87,3 @@ Detect registry modifications that may indicate persistence or configuration tam
 ### Detection Logic
 
 Wazuh continuously monitors configured Windows registry locations and generates alerts when changes occur.
-
-### Evidence
-
-* Registry modification
-* Registry alert
